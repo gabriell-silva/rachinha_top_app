@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rachinha_top_app/layout/drawer.dart';
 import 'package:rachinha_top_app/shared/app_routes.dart';
 import 'package:rachinha_top_app/widgets/errors.dart';
-import 'package:rachinha_top_app/widgets/form/input.dart';
+import 'package:rachinha_top_app/widgets/input.dart';
 import 'package:rachinha_top_app/widgets/logo.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -45,8 +45,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-
     return Scaffold(
       appBar: AppBar(
         title: const LogoWidget(
@@ -59,7 +57,6 @@ class _HomePageState extends State<HomePage> {
       drawer: AppDrawer(drawerItems: drawerItems),
       body: Container(
         color: Colors.blue[100],
-        width: size.width,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -78,26 +75,32 @@ class _HomePageState extends State<HomePage> {
               isPassword: true,
               controller: passwordController,
             ),
-            ElevatedButton(
-              style: TextButton.styleFrom(
-                backgroundColor: Colors.blue[900],
-                foregroundColor: Colors.blue[100],
-                minimumSize: const Size(300, 40),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 0, vertical: 22),
-              ),
-              child: const Text('Entrar'),
-              onPressed: () {
-                authenticateUser();
-              },
-            ),
-            TextButton(
-              child: const Text('Criar Conta'),
-              onPressed: () {
-                Navigator.pop(context);
-                Navigator.pushNamed(context, AppRoutes.createAccount);
-              },
-            ),
+            Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: ElevatedButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.blue[900],
+                    foregroundColor: Colors.blue[100],
+                    minimumSize: const Size(300, 60),
+                  ),
+                  child: const Text('Entrar'),
+                  onPressed: () {
+                    authenticateUser();
+                  },
+                )),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text("Não possui uma conta?"),
+                TextButton(
+                  child: const Text('Criar Conta'),
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, AppRoutes.createAccount);
+                  },
+                ),
+              ],
+            )
           ],
         ),
       ),

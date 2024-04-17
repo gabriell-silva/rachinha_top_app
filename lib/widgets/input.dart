@@ -18,7 +18,7 @@ class InputWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 46.0, vertical: 16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 46.0, vertical: 8.0),
           child: TextFormField(
             obscureText: isPassword, // incluir mascára no input
             controller: controller, // texto informado no input
