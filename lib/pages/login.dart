@@ -31,8 +31,8 @@ class _LoginPageState extends State<LoginPage> {
 
     try {
       await client.auth.signInWithPassword(password: password, email: username);
-
-      Navigator.pushNamed(context, AppRoutes.profile);
+      Navigator.of(context).pushNamed(AppRoutes.profile,
+          arguments: {"email": emailController.text});
     } on AuthApiException catch (error) {
       showDialog(
           context: context,
