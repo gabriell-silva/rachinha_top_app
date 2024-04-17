@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rachinha_top_app/layout/drawer.dart';
 import 'package:rachinha_top_app/shared/app_routes.dart';
-import 'package:rachinha_top_app/widgets/error.dart';
+import 'package:rachinha_top_app/widgets/errors.dart';
 import 'package:rachinha_top_app/widgets/form/input.dart';
 import 'package:rachinha_top_app/widgets/logo.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
