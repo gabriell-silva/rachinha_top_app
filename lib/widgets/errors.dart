@@ -11,7 +11,7 @@ class ErrorDialog extends StatelessWidget {
     final String customMessageError = teste(error);
 
     return AlertDialog(
-      title: const Text('Error'),
+      title: const Text('Erro'),
       content: Text(customMessageError),
       actions: [
         TextButton(

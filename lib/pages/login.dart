@@ -89,7 +89,13 @@ class _LoginPageState extends State<LoginPage> {
                   },
                 ),
               ],
-            )
+            ),
+            TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, AppRoutes.profile,
+                      arguments: {"email": "convidado"});
+                },
+                child: const Text("Entrar como convidado"))
           ],
         ),
       ),
