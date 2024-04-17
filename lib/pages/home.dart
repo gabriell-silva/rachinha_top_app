@@ -1,87 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:rachinha_top_app/services/supabase.dart';
-import 'package:rachinha_top_app/shared/app_routes.dart';
-import 'package:rachinha_top_app/widgtes/form/input.dart';
 import 'package:rachinha_top_app/layout/drawer.dart';
-import 'package:rachinha_top_app/widgtes/logo.dart';
+import 'package:rachinha_top_app/shared/app_routes.dart';
+import 'package:rachinha_top_app/widgets/error.dart';
+import 'package:rachinha_top_app/widgets/form/input.dart';
+import 'package:rachinha_top_app/widgets/logo.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  final TextEditingController usernameController = TextEditingController();
+class _HomePageState extends State<HomePage> {
+  final client = Supabase.instance.client;
+
+  final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
-  late SupabaseClient client; // Cliente Supabase
-
-  @override
-  void initState() async {
-    await initializeSupabase();
-  }
 
   @override
   void dispose() {
-    usernameController.dispose();
+    emailController.dispose();
     passwordController.dispose();
     super.dispose();
   }
 
   Future<void> authenticateUser() async {
-    // Obter os valores dos campos
-    String username = usernameController.text;
+    String username = emailController.text;
     String password = passwordController.text;
 
     try {
-      // Fazer a requisição POST para o Supabase
-      final response = await client.auth.signUp(
-        username: username,
-        password: password,
-      );
+      await client.auth.signInWithPassword(password: password, email: username);
 
-      // Verificar se a requisição foi bem-sucedida
-      if (response.error == null) {
-        // Requisição bem-sucedida, redirecionar para outra tela, por exemplo
-        Navigator.pushNamed(context, AppRoutes.profile);
-      } else {
-        // Requisição falhou, exibir mensagem de erro
-        showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            title: const Text('Erro de Autenticação'),
-            content: Text('Erro: ${response.error!.message}'),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text('OK'),
-              ),
-            ],
-          ),
-        );
-      }
-    } catch (error) {
-      // Exibir mensagem de erro genérica em caso de exceção
+      Navigator.pushNamed(context, AppRoutes.profile);
+    } on AuthApiException catch (error) {
       showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: const Text('Erro'),
-          content: Text('Ocorreu um erro: $error'),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text('OK'),
-            ),
-          ],
-        ),
-      );
+          context: context,
+          builder: (context) => ErrorDialog(
+                error: error,
+              ));
     }
   }
 
@@ -113,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             InputWidget(
               label: 'Usuário',
-              controller: usernameController,
+              controller: emailController,
             ),
             InputWidget(
               label: 'Senha',
@@ -130,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               child: const Text('Entrar'),
               onPressed: () {
-                authenticateUser(); // Chamar a função de autenticação
+                authenticateUser();
               },
             ),
             TextButton(

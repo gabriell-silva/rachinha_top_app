@@ -5,15 +5,15 @@ import 'package:rachinha_top_app/pages/profile.dart';
 import 'package:rachinha_top_app/shared/app_routes.dart';
 
 class App extends StatelessWidget {
-  const App({super.key}); // props
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false, // remove flag debug
-      initialRoute: AppRoutes.index, // class com rotas definidas
+      debugShowCheckedModeBanner: false,
+      initialRoute: AppRoutes.index,
       routes: {
-        AppRoutes.index: (ctx) => const HomeScreen(),
+        AppRoutes.index: (ctx) => const HomePage(),
         AppRoutes.profile: (ctx) => const ProfileScreen(),
         AppRoutes.createAccount: (ctx) => const CreateAccountScreen(),
       },

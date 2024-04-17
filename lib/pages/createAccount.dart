@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rachinha_top_app/layout/drawer.dart';
 import 'package:rachinha_top_app/shared/app_routes.dart';
-import 'package:rachinha_top_app/widgtes/form/input.dart';
-import 'package:rachinha_top_app/widgtes/logo.dart';
+import 'package:rachinha_top_app/widgets/logo.dart';
 
 class CreateAccountScreen extends StatelessWidget {
   const CreateAccountScreen({super.key});
