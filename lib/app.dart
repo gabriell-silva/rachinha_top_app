@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rachinha_top_app/pages/login.dart';
 import 'package:rachinha_top_app/pages/profile.dart';
-import 'package:rachinha_top_app/pages/signUp.dart';
+import 'package:rachinha_top_app/pages/sign_up.dart';
 import 'package:rachinha_top_app/shared/app_routes.dart';
 
 class App extends StatelessWidget {

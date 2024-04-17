@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rachinha_top_app/layout/drawer.dart';
 import 'package:rachinha_top_app/shared/app_routes.dart';
 import 'package:rachinha_top_app/widgets/errors.dart';
 import 'package:rachinha_top_app/widgets/input.dart';
@@ -46,15 +45,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const LogoWidget(
-          sourceImage: 'assets/images/logo.png',
-          heightImage: 150.0,
-          widthImage: 150.0,
-        ),
-        backgroundColor: Colors.blue[50],
-      ),
-      drawer: AppDrawer(drawerItems: drawerItems),
       body: Container(
         color: Colors.blue[100],
         child: Column(
@@ -67,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
               widthImage: 60.0,
             ),
             InputWidget(
-              label: 'Usuário',
+              label: 'Email',
               controller: emailController,
             ),
             InputWidget(
