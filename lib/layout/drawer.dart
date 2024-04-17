@@ -46,7 +46,7 @@ List<DrawerItem> drawerItems = [
     onTap: (BuildContext context) {
       Navigator.pop(context); // Feche o Drawer
       Navigator.pushNamed(
-          context, AppRoutes.index); // Navegue para a rota da página inicial
+          context, AppRoutes.login); // Navegue para a rota da página inicial
     },
   ),
   DrawerItem(

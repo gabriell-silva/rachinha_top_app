@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:rachinha_top_app/layout/drawer.dart';
-import 'package:rachinha_top_app/shared/app_routes.dart';
 import 'package:rachinha_top_app/widgets/logo.dart';
 
-class CreateAccountScreen extends StatelessWidget {
-  const CreateAccountScreen({super.key});
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,16 +31,6 @@ class CreateAccountScreen extends StatelessWidget {
               heightImage: 60.0,
               widthImage: 60.0,
             ),
-            // const InputWidget(
-            //   label: 'Nome',
-
-            // ),
-            // const InputWidget(
-            //   label: 'Usuário',
-            // ),
-            // const InputWidget(
-            //   label: 'Senha',
-            // ),
             ElevatedButton(
               style: TextButton.styleFrom(
                 backgroundColor: Colors.blue[900],
@@ -57,7 +46,6 @@ class CreateAccountScreen extends StatelessWidget {
               child: const Text('Voltar'),
               onPressed: () {
                 Navigator.pop(context);
-                Navigator.pushNamed(context, AppRoutes.sign);
               },
             ),
           ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rachinha_top_app/pages/createAccount.dart';
-import 'package:rachinha_top_app/pages/home.dart';
+import 'package:rachinha_top_app/pages/login.dart';
 import 'package:rachinha_top_app/pages/profile.dart';
+import 'package:rachinha_top_app/pages/signUp.dart';
 import 'package:rachinha_top_app/shared/app_routes.dart';
 
 class App extends StatelessWidget {
@@ -11,11 +11,11 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.index,
+      initialRoute: AppRoutes.login,
       routes: {
-        AppRoutes.index: (ctx) => const HomePage(),
-        AppRoutes.profile: (ctx) => const ProfileScreen(),
-        AppRoutes.createAccount: (ctx) => const CreateAccountScreen(),
+        AppRoutes.login: (ctx) => const LoginPage(),
+        AppRoutes.profile: (ctx) => const ProfilePage(),
+        AppRoutes.signUp: (ctx) => const SignUpPage(),
       },
     );
   }

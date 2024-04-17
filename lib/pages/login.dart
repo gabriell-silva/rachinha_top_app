@@ -6,14 +6,14 @@ import 'package:rachinha_top_app/widgets/input.dart';
 import 'package:rachinha_top_app/widgets/logo.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _LoginPageState extends State<LoginPage> {
   final client = Supabase.instance.client;
 
   final TextEditingController emailController = TextEditingController();
@@ -95,8 +95,7 @@ class _HomePageState extends State<HomePage> {
                 TextButton(
                   child: const Text('Criar Conta'),
                   onPressed: () {
-                    Navigator.pop(context);
-                    Navigator.pushNamed(context, AppRoutes.createAccount);
+                    Navigator.pushNamed(context, AppRoutes.signUp);
                   },
                 ),
               ],

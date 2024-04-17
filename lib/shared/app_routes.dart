@@ -1,6 +1,5 @@
 abstract class AppRoutes {
-  static const index = '/';
-  static const sign = '/sign';
-  static const createAccount = '/createAccount';
+  static const login = '/';
+  static const signUp = '/signup';
   static const profile = '/profile';
 }
