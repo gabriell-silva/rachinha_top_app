@@ -55,7 +55,7 @@ List<DrawerItem> drawerItems = [
     onTap: (BuildContext context) {
       Navigator.pop(context); // Feche o Drawer
       Navigator.pushNamed(
-          context, AppRoutes.profile); // Navegue para a rota de perfil
+          context, AppRoutes.index); // Navegue para a rota de perfil
     },
   ),
 ];
