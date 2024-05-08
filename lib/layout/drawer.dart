@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rachinha_top_app/shared/app_routes.dart';
+import 'package:rachinha_top_app/utils/app_routes.dart';
 
 class AppDrawer extends StatelessWidget {
   final List<DrawerItem> drawerItems;
@@ -55,7 +55,7 @@ List<DrawerItem> drawerItems = [
     onTap: (BuildContext context) {
       Navigator.pop(context); // Feche o Drawer
       Navigator.pushNamed(
-          context, AppRoutes.profile); // Navegue para a rota de perfil
+          context, AppRoutes.index); // Navegue para a rota de perfil
     },
   ),
 ];

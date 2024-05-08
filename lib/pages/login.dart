@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rachinha_top_app/shared/app_routes.dart';
+import 'package:rachinha_top_app/utils/app_routes.dart';
 import 'package:rachinha_top_app/widgets/errors.dart';
 import 'package:rachinha_top_app/widgets/input.dart';
 import 'package:rachinha_top_app/widgets/logo.dart';
@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
 
     try {
       await client.auth.signInWithPassword(password: password, email: username);
-      Navigator.of(context).pushNamed(AppRoutes.profile,
+      Navigator.of(context).pushNamed(AppRoutes.index,
           arguments: {"email": emailController.text});
     } on AuthApiException catch (error) {
       showDialog(
@@ -92,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, AppRoutes.profile,
+                  Navigator.pushNamed(context, AppRoutes.index,
                       arguments: {"email": "convidado"});
                 },
                 child: const Text("Entrar como convidado"))

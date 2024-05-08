@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:rachinha_top_app/shared/app_routes.dart';
+import 'package:rachinha_top_app/utils/app_routes.dart';
 
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {

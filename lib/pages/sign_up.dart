@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rachinha_top_app/shared/app_routes.dart';
+import 'package:rachinha_top_app/utils/app_routes.dart';
 import 'package:rachinha_top_app/widgets/input.dart';
 import 'package:rachinha_top_app/widgets/logo.dart';
 
@@ -45,7 +45,7 @@ class SignUpPage extends StatelessWidget {
                 ),
                 child: const Text('Criar conta'),
                 onPressed: () {
-                  Navigator.of(context).pushNamed(AppRoutes.profile,
+                  Navigator.of(context).pushNamed(AppRoutes.index,
                       arguments: {"email": emailController.text});
                 },
               ),
