@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rachinha_top_app/pages/login.dart';
 import 'package:rachinha_top_app/pages/sign_up.dart';
+import 'package:rachinha_top_app/pages/teams.dart';
 import 'package:rachinha_top_app/utils/app_routes.dart';
 import 'package:rachinha_top_app/widgets/app_navigator.dart';
 
@@ -16,6 +17,7 @@ class App extends StatelessWidget {
         AppRoutes.login: (ctx) => const LoginPage(),
         AppRoutes.index: (ctx) => const AppNavigator(),
         AppRoutes.signUp: (ctx) => const SignUpPage(),
+        AppRoutes.teams: (ctx) => const TeamsPage(),
       },
     );
   }
