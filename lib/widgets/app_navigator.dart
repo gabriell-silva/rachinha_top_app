@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rachinha_top_app/pages/home.dart';
-import 'package:rachinha_top_app/pages/sort_teams.dart';
+import 'package:rachinha_top_app/pages/racha_list.dart';
 import 'package:rachinha_top_app/pages/timer.dart';
 
 class AppNavigator extends StatefulWidget {
@@ -13,7 +13,7 @@ class AppNavigator extends StatefulWidget {
 class _AppNavigatorState extends State<AppNavigator> {
   List<Widget> pages = [
     const HomePage(),
-    const SortTeamsPage(),
+    const RachaListPage(),
     const TimerPage(),
   ];
 
@@ -33,9 +33,9 @@ class _AppNavigatorState extends State<AppNavigator> {
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Início"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.group), label: "Sortear Times"),
+                icon: Icon(Icons.group), label: "Lista do Racha"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.timer_sharp), label: "Temporizador"),
+                icon: Icon(Icons.timer_sharp), label: "Tempo"),
           ]),
     );
   }
