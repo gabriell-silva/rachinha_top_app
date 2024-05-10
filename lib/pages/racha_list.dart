@@ -9,7 +9,7 @@ class RachaListPage extends StatefulWidget {
 }
 
 class _RachaListPageState extends State<RachaListPage> {
-  double currentSliderValue = 4;
+  double initialValueToPlayersPerTeam = 4;
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +24,14 @@ class _RachaListPageState extends State<RachaListPage> {
             children: [
               const Text("Jogadores por time"),
               Slider(
-                value: currentSliderValue,
+                value: initialValueToPlayersPerTeam,
                 min: 1,
                 max: 11,
                 divisions: 10,
-                label: currentSliderValue.round().toString(),
+                label: initialValueToPlayersPerTeam.round().toString(),
                 onChanged: (double value) {
                   setState(() {
-                    currentSliderValue = value;
+                    initialValueToPlayersPerTeam = value;
                   });
                 },
               ),
