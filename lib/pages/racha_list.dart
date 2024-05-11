@@ -68,8 +68,11 @@ class _RachaListPageState extends State<RachaListPage> {
                   onPressed: () {
                     players.removeWhere((element) => element.isEmpty);
 
-                    Navigator.pushNamed(context, AppRoutes.teams,
-                        arguments: players);
+                    Navigator.pushNamed(context, AppRoutes.teams, arguments: {
+                      "players": players,
+                      "initialValueToPlayersPerTeam":
+                          initialValueToPlayersPerTeam
+                    });
                   },
                   child: const Text("Sortear Times")),
             ],
