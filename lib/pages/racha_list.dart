@@ -10,7 +10,7 @@ class RachaListPage extends StatefulWidget {
 
 class _RachaListPageState extends State<RachaListPage> {
   List<String> players = [""];
-  double initialValueToPlayersPerTeam = 4;
+  int playersPerTeam = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -51,27 +51,26 @@ class _RachaListPageState extends State<RachaListPage> {
                 children: [
                   const Text("Jogadores por time"),
                   Slider(
-                    value: initialValueToPlayersPerTeam,
-                    min: 1,
-                    max: 11,
-                    divisions: 10,
-                    label: initialValueToPlayersPerTeam.round().toString(),
+                    value: playersPerTeam.toDouble(),
+                    min: 1.toDouble(),
+                    max: players.length.toDouble(),
+                    label: playersPerTeam.round().toString(),
                     onChanged: (double value) {
                       setState(() {
-                        initialValueToPlayersPerTeam = value;
+                        playersPerTeam = value.ceil();
                       });
                     },
                   ),
                 ],
               ),
+              Text("Número de jogadores por time: ${playersPerTeam.floor()}"),
               TextButton(
                   onPressed: () {
                     players.removeWhere((element) => element.isEmpty);
 
                     Navigator.pushNamed(context, AppRoutes.teams, arguments: {
                       "players": players,
-                      "initialValueToPlayersPerTeam":
-                          initialValueToPlayersPerTeam
+                      "playersPerTeam": playersPerTeam
                     });
                   },
                   child: const Text("Sortear Times")),
