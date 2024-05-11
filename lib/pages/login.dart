@@ -13,8 +13,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final client = Supabase.instance.client;
-
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -26,11 +24,13 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> authenticateUser() async {
-    String username = emailController.text;
+    String email = emailController.text;
     String password = passwordController.text;
 
     try {
-      await client.auth.signInWithPassword(password: password, email: username);
+      await Supabase.instance.client.auth
+          .signInWithPassword(password: password, email: email);
+
       Navigator.of(context).pushNamed(AppRoutes.index,
           arguments: {"email": emailController.text});
     } on AuthApiException catch (error) {
